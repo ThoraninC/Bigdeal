@@ -82,16 +82,111 @@ class card extends React.Component{
     getcard_pic(card_skin,rank,suit){
 
         var cardpicture;
-
+            cardpicture += this.skin_switch(card_skin);
+            cardpicture += this.rank_switch(rank);
+            cardpicture += this.suit_switch(suit);
+            cardpicture += this.suffix_switch(card_skin);
        
-
-        switch(this.state.rank){
-
-        }
-
-
         return <img src={cardpicture} alt="Logo" />;
     }
+
+    render(props){
+        return this.getcard_pic(this.props.card_skin,this.props.rank,this.props.suit);
+    }
+}
+
+class deck extends React.Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            cards: [{
+                suit: null,
+                rank: null,
+            }].array(52)
+        }
+
+        for(let i;i<4;i++){
+
+            for(let j;j<13;j++){
+
+                switch (i){
+                    case 0:
+                        this.state.cards[i*13+j].suit = "C";
+                        break;
+                    case 1:
+                        this.state.cards[i*13+j].suit = "D";
+                        break;
+                    case 2:
+                        this.state.cards[i*13+j].suit = "H";
+                        break;
+                    case 3:
+                        this.state.cards[i*13+j].suit = "S";
+                        break;
+                    default:
+                        this.state.cards[i*13+j].suit = "null";
+                }
+
+                switch (j){
+                    case 0:
+                        this.state.cards[i*13+j].rank = "A";
+                        break;
+                    case 1:
+                        this.state.cards[i*13+j].rank = "2";
+                        break;
+                    case 2:
+                        this.state.cards[i*13+j].rank = "3";
+                        break;
+                    case 3:
+                        this.state.cards[i*13+j].rank = "4";
+                        break;
+                    case 4:
+                        this.state.cards[i*13+j].rank = "5";
+                        break;
+                    case 5:
+                        this.state.cards[i*13+j].rank = "6";
+                        break;
+                    case 6:
+                        this.state.cards[i*13+j].rank = "7";
+                        break;
+                    case 7:
+                        this.state.cards[i*13+j].rank = "8";
+                        break;
+                    case 8:
+                        this.state.cards[i*13+j].rank = "9";
+                        break;
+                    case 9:
+                        this.state.cards[i*13+j].rank = "T";
+                        break;
+                    case 10:
+                        this.state.cards[i*13+j].rank = "J";
+                        break;
+                    case 11:
+                        this.state.cards[i*13+j].rank = "Q";
+                        break;
+                    case 12:
+                        this.state.cards[i*13+j].rank = "K";
+                        break;
+                    default:
+                        this.state.cards[i*13+j].rank = "null";
+
+                }
+            }
+        }
+    }
+
+    popcard(i){
+        //this.props.card
+    }
+
+    // searchcard(){
+
+    // }
+
+
+    render(){
+        return ;
+    }
+
 }
 
 // ========================================
